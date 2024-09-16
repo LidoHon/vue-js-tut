@@ -1,23 +1,21 @@
 <script>
+import { ref } from 'vue';
 export default {
-  data() {
-    return {
-      name: "lido",
-      status: "pending",
-      tasks:['learn vue', 'learn nuxt', 'learn dockeer'],
-      link: 'https://google.com' 
-    };
-  },
-  methods:{
-    toggleStatus(){
-      if(this.status === 'active'){
-        this.status = 'pending'
-      }else if(this.status === 'pending'){
-        this.status = 'inactive'
+  setup(){
+    const name =ref('lido');
+    const status=ref('active');
+    const tasks=ref(['task1','task2', 'task3', 'task4']);
+    // const link='https://google.com';
+    const toggleStatus=()=>{
+      if(status.value==='active'){
+        status.value='pending';
+      }else if(status.value==='pending'){
+        status.value='inactive';
       }else{
-        this.status = 'active'
+        status.value='active';
       }
     }
+    return {name,status,tasks,toggleStatus}
   }
 };
 </script>
@@ -36,7 +34,7 @@ export default {
     </li>
   </ul>
   <!-- <a v-bind:href="link">click here</a> -->
-  <a :href="link">click here</a>
+  <!-- <a :href="link">click here</a> -->
 <hr>
   <!-- <button v-on:click="toggleStatus">change status</button> -->
   <button @click="toggleStatus">change status</button>
