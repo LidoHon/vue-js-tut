@@ -1,7 +1,6 @@
-<script>
+<script setup>
 import { ref } from 'vue';
-export default {
-  setup(){
+
     const name =ref('lido');
     const status=ref('active');
     const tasks=ref(['task1','task2', 'task3', 'task4']);
@@ -15,9 +14,8 @@ export default {
         status.value='active';
       }
     }
-    return {name,status,tasks,toggleStatus}
-  }
-};
+   
+
 </script>
 
 <template>
